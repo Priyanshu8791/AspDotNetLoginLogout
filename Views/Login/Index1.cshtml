@@ -1,0 +1,45 @@
+﻿@model AspDotNetProject.Models.user1
+@{
+    ViewBag.Title = "Index1";
+}
+
+<h2>Index1</h2>
+<div class="row">
+    <div class="col-md-3 col-md-offset-5">
+        <div style="border:5px black ridge; padding:10px;">
+            @using (Html.BeginForm("Index1","Login",FormMethod.Post)) 
+            {
+                <table height="200">
+                    <tr>
+                        <th colspan="2" class="text-center" style="font-size:25px;">LOGIN</th>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(model=>model.Name)</td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(model=>model.Password)</td>
+                        <td>
+                            @Html.EditorFor(model=>model.Password,new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model=>model.Password,"",new {@class ="text-danger"})
+                            @ViewBag.ErrorMessage
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Login" name="login" class="btn btn-info"/>
+                            <a href="\Login/Reset" class="btn btn-danger">Reset</a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            }
+        </div>
+
+    </div>
+
+</div>
+
